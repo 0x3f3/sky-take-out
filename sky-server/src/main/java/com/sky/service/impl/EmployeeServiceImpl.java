@@ -80,11 +80,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置密码 123456
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
         //设置当前记录的创建时间和修改时间
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        //employee.setCreateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
         //设置当前记录创建人id和修改人id
-        employee.setCreateUser(BaseContext.getCurrentId());//设置当前记录创建人id和修改人id
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setCreateUser(BaseContext.getCurrentId());//设置当前记录创建人id和修改人id
+        //employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.insert(employee);//后续步骤定义
     }
 
@@ -114,9 +114,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 1. 把前端传过来的数据复制给员工对象
         BeanUtils.copyProperties(employeeDTO, employee);
         // 2. 设置最后修改时间（系统自动填）
-        employee.setUpdateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
         // 3. 设置最后修改人（当前登录的管理员，系统自动填）
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
 
